@@ -11,8 +11,8 @@ var numberOfTags = 0;
         sortBy: 'most-recent',
         // limit: 10,
         target: "instafeed" + numberOfTags,
-        // resolution: 'low_resolution',
-        template: '<div class="grid-item"><img src={{image}}/></div>'
+        resolution: 'standard_resolution',
+        template: '<div class="grid-item"><img class="grid-img-fluid" src={{image}}/></div>'
     });
     // Request add instagram handle
     // var link = '#instafeed' + numberOfTags
