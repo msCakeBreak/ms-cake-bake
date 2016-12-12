@@ -1,68 +1,49 @@
 ---
 layout: default
 ---
-<header>
-  Admin
-</header>
+<script type="text/javascript">
+  var listOfHastTags = []
 
+  var renderTags = function() {
+    listOfHastTags.forEach(function(hashTag) {
+      $( "#selectedHashTags" ).append( "<li>" + hashTag + "</li>" );
+    })
+  }
 
-<form class="bd-example">
+  var constructURL = function() {
+    
+  }
+
+  $( document ).ready(function() {
+      $( "#hashTagAdd" ).click(function(event) {
+        event.preventDefault()
+        listOfHastTags.push($( "#hashTagInput" ).val())
+        renderTags()
+      });
+  });
+
+</script>
+
+<form>
   <fieldset>
-    <legend>Example legend</legend>
-
+    <legend>Set Up a Instagram Image Link</legend>
     <p>
       <label for="input">Add A hash Tag</label>
-      <input type="text" id="input" placeholder="Example input">
+      <input type="text" id="hashTagInput" placeholder="Example input">
+      <button id="hashTagAdd">Add</button>
     </p>
+  </fieldset>
 
+  <fieldset>
+    <legend>Selected Hashtags</legend>
+    <ul id="selectedHashTags">
+    </ul>
 
+  </fieldset>
+
+  <fieldset>
     <p>
-      <label>
-        <input type="checkbox" value="">
-        Check this checkbox
-      </label>
-    </p>
-
-    <p>
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-        Option one is this and that
-      </label>
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        Option two is something else that's also super long to demonstrate the wrapping of these fancy form controls.
-      </label>
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled="">
-        Option three is disabled
-      </label>
-    </p>
-
-    <p>
-      <label for="textarea">Example textarea</label>
-      <textarea id="textarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 97px;"></textarea>
-    </p>
-
-    <p>
-      <label for="time">Example temporal</label>
-      <input type="datetime-local" id="time">
-    </p>
-
-    <p>
-      <label for="output">Example output</label>
-      <output name="result" id="output">100</output>
-    </p>
-
-    <p>
-      <button type="submit">Button submit</button>
-      <input type="submit" value="Input submit button">
-      <input type="button" value="Input button">
-    </p>
-
-    <p>
-      <button type="submit" disabled="">Button submit</button>
-      <input type="submit" value="Input submit button" disabled="">
-      <input type="button" value="Input button" disabled="">
+      <button type="submit" disabled="">Generate Link</button>
     </p>
   </fieldset>
 </form>
