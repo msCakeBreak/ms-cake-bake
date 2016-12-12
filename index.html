@@ -1,18 +1,30 @@
 ---
 layout: default
 ---
-<!-- TODO this will be a full screen of pictures with tags passed in via URL params -->
 <script type="text/javascript">
-
+  $(document).ready(function() {
+    var queryParams = location.search.substr(1).split("&")
+    .map(function(item) {
+      return {
+        'tag': item.split("=")[1]
+      }
+    })
 
     var feed = new Instafeed({
         get: 'tagged',
-        tagName: 'awesome',
+        tagName: queryParams[0].tag,
         <!-- clientId: 'e4a0e1e99e9346ceb1b2fa077f65fcd6', -->
-        <!-- accessToken: '44511616.e4a0e1e.f0b705f3d63749c6ab4a04a276176699' -->
-        accessToken: '44511616.e4a0e1e.f0b705f3d63749c6ab4a04a276176699',
+        <!-- accessToken: '44511616.1677ed0.47a3cff896cf40c69d512a8d0381599a' -->
+        accessToken: '44511616.ba4c844.47b3e2cdf67141149c829d026e883d6a',
+        sortBy: 'most-recent',
+        limit: 100,
     });
     feed.run();
+  });
 </script>
 
-<div id="instagram"></div>
+<div class="container-fluid">
+  <div class="col-xs-12">
+    <div id="instafeed"></div>
+  </div>
+</div>

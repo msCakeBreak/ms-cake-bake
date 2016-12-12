@@ -22,7 +22,7 @@ layout: default
         return '/?' + params.join('&')
       }
 
-      $( document ).ready(function() {
+      $(document).ready(function() {
           $( "#hashTagAdd" ).click(function(event) {
             event.preventDefault()
             listOfHashTags.push($("#hashTagInput").val())
