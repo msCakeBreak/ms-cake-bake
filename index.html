@@ -1,33 +1,9 @@
 ---
 layout: default
 ---
-<script type="text/javascript">
-  var numberOfTags = 0;
 
-  var addPhotos = function(tag) {
-    $( "#photocontainer" ).append("<div id='instafeed" + numberOfTags + "'</div>" );
+<script src='/picture.js' type="text/javascript"></script>
 
-    var feed = new Instafeed({
-        get: 'tagged',
-        tagName: tag,
-        accessToken: '44511616.ba4c844.47b3e2cdf67141149c829d026e883d6a',
-        sortBy: 'most-recent',
-        limit: 10,
-        target: "instafeed" + numberOfTags
-    });
-    feed.run();
-    numberOfTags += 1;
-  }
+<div class="container-fluid" id="photocontainer">
 
-  $(document).ready(function() {
-    var queryParams = location.search.substr(1).split("&")
-    .forEach(function(item) {
-      addPhotos(item.split("=")[1])
-    })
-  });
-</script>
-
-<div class="container-fluid">
-  <div class="col-xs-12" id="photocontainer">
-  </div>
 </div>
