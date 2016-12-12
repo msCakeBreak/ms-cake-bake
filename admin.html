@@ -1,49 +1,75 @@
 ---
 layout: default
 ---
-<script type="text/javascript">
-  var listOfHastTags = []
+<div class="container">
 
-  var renderTags = function() {
-    listOfHastTags.forEach(function(hashTag) {
-      $( "#selectedHashTags" ).append( "<li>" + hashTag + "</li>" );
-    })
-  }
+<div class="row">
+  <div class="col-xs-12">
+    <script type="text/javascript">
+      var listOfHashTags = []
 
-  var constructURL = function() {
-    
-  }
+      var renderTags = function() {
+        $( "#selectedHashTags").empty()
+        listOfHashTags.forEach(function(hashTag) {
+          $( "#selectedHashTags" ).append( "<li class='list-group-item'>" + hashTag + "</li>" );
+        })
+      }
 
-  $( document ).ready(function() {
-      $( "#hashTagAdd" ).click(function(event) {
-        event.preventDefault()
-        listOfHastTags.push($( "#hashTagInput" ).val())
-        renderTags()
+      var constructURL = function() {
+        var params = listOfHashTags.map(function(hashTag) {
+          return 'hashTag=' + hashTag;
+        })
+        return '/?' + params.join('&')
+      }
+
+      $( document ).ready(function() {
+          $( "#hashTagAdd" ).click(function(event) {
+            event.preventDefault()
+            listOfHashTags.push($("#hashTagInput").val())
+            renderTags()
+            $("#hashTagInput").val('')
+          });
+          $( "#generateLink" ).click(function(event) {
+            event.preventDefault()
+            var url = constructURL()
+            document.location.href = url
+          });
       });
-  });
 
-</script>
+    </script>
 
-<form>
-  <fieldset>
-    <legend>Set Up a Instagram Image Link</legend>
-    <p>
-      <label for="input">Add A hash Tag</label>
-      <input type="text" id="hashTagInput" placeholder="Example input">
-      <button id="hashTagAdd">Add</button>
-    </p>
-  </fieldset>
+    <form>
+      <fieldset>
+        <h1>Set Up a Instagram Image Link</h1>
+        <p>
+          <label for="input">Add A hash Tag</label>
+          <input type="text" id="hashTagInput" placeholder="Example input">
+          <button class="btn btn-primary" id="hashTagAdd">Add</button>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+</div>
 
-  <fieldset>
-    <legend>Selected Hashtags</legend>
-    <ul id="selectedHashTags">
-    </ul>
+<div class="row">
+  <div class="col-xs-12">
+      <legend>Selected Hashtags</legend>
+      <ul class="list-group" id="selectedHashTags">
+      </ul>
+  </div>
+</div>
 
-  </fieldset>
+<div class="row mt-3">
+  <div class="col-xs-12">
+    <form>
+      <fieldset>
+        <p>
+          <button class="btn btn-primary" type="submit" id="generateLink">Generate Link</button>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+</div>
 
-  <fieldset>
-    <p>
-      <button type="submit" disabled="">Generate Link</button>
-    </p>
-  </fieldset>
-</form>
+
+</div>
