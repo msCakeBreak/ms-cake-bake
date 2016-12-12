@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<!-- TODO this will be a full screen of pictures with tags passed in via URL params -->
+<script type="text/javascript">
+
+    
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'awesome',
+        <!-- clientId: 'e4a0e1e99e9346ceb1b2fa077f65fcd6', -->
+        <!-- accessToken: '44511616.e4a0e1e.f0b705f3d63749c6ab4a04a276176699' -->
+        accessToken: '44511616.e4a0e1e.f0b705f3d63749c6ab4a04a276176699',
+    });
+    feed.run();
+</script>
+
+<div id="instagram"></div>
