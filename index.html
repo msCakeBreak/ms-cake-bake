@@ -2,27 +2,32 @@
 layout: default
 ---
 <script type="text/javascript">
-  $(document).ready(function() {
-    var queryParams = location.search.substr(1).split("&")
-    .map(function(item) {
-      return {
-        'tag': item.split("=")[1]
-      }
-    })
+  var numberOfTags = 0;
+
+  var addPhotos = function(tag) {
+    $( "#photocontainer" ).append("<div id='instafeed" + numberOfTags + "'</div>" );
 
     var feed = new Instafeed({
         get: 'tagged',
-        tagName: queryParams[0].tag,
+        tagName: tag,
         accessToken: '44511616.ba4c844.47b3e2cdf67141149c829d026e883d6a',
         sortBy: 'most-recent',
         limit: 100,
+        target: "instafeed" + numberOfTags
     });
     feed.run();
+    numberOfTags += 1;
+  }
+
+  $(document).ready(function() {
+    var queryParams = location.search.substr(1).split("&")
+    .forEach(function(item) {
+      addPhotos(item.split("=")[1])
+    })
   });
 </script>
 
 <div class="container-fluid">
-  <div class="col-xs-12">
-    <div id="instafeed"></div>
+  <div class="col-xs-12" id="photocontainer">
   </div>
 </div>
