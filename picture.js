@@ -12,7 +12,7 @@ var numberOfTags = 0;
         // limit: 10,
         target: "instafeed" + numberOfTags,
         resolution: 'standard_resolution',
-        template: '<div class="grid-item"><img class="grid-img-fluid" src={{image}}/></div>'
+        template: '<div class="grid-item"><img class="grid-img-fluid" src={{image}}/><p class="imgDescription">This image looks super neat.</p></div>'
     });
     // Request add instagram handle
     // var link = '#instafeed' + numberOfTags

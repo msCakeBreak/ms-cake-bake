@@ -16,4 +16,21 @@
   float: left;
   max-width: 360px;
   max-height: 360px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.imgDescription {
+  visibility: hidden;
+  opacity: 0;
+  top: -180px;
+  position: relative;
+  color: white;
+}
+
+
+.grid-item:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
 }
