@@ -12,7 +12,7 @@ var numberOfTags = 0;
         get: 'tagged',
         tagName: tag,
         accessToken: '44511616.ba4c844.47b3e2cdf67141149c829d026e883d6a',
-        sortBy: 'most-liked',
+        sortBy: 'most-recent',
         // limit: 10,
         target: "instafeed" + numberOfTags,
         resolution: 'standard_resolution',
