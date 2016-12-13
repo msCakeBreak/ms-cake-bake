@@ -3,6 +3,9 @@ var numberOfTags = 0;
   var addPhotos = function(tag) {
     $( "#photocontainer" ).append("<div class='grid' id='instafeed" + numberOfTags + "'><div class='grid-sizer'></div></div>" );
 
+    var imgTemplate = '<div class="grid-item"><img class="grid-img-fluid" src={{image}}/>'
+    + '<p class="imgDescription"><i class="fa fa-heart"></i> {{likes}} '
+    + '<i class="fa fa-comment"></i> {{comments}}</p></div>'
 
     var feed = new Instafeed({
         get: 'tagged',
@@ -12,7 +15,7 @@ var numberOfTags = 0;
         // limit: 10,
         target: "instafeed" + numberOfTags,
         resolution: 'standard_resolution',
-        template: '<div class="grid-item"><img class="grid-img-fluid" src={{image}}/><p class="imgDescription">This image looks super neat.</p></div>'
+        template: imgTemplate
     });
     // Request add instagram handle
     // var link = '#instafeed' + numberOfTags

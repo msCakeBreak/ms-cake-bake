@@ -17,13 +17,14 @@
   max-width: 360px;
   max-height: 360px;
   &:hover {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 
 .imgDescription {
   visibility: hidden;
   opacity: 0;
+  left: 40%;
   top: -180px;
   position: relative;
   color: white;
